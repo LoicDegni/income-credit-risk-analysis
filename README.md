@@ -43,34 +43,39 @@ The datasets contain missing values encoded as "?", primarily affecting categori
 2- Feature Encoding
 
 The datasets include multiple categorical variables with different characteristics:
-- Nominal variables (e.g., occupation, workclass)
-- Ordinal variables (e.g., education level)
+
+    - Nominal variables (e.g., occupation, workclass)
+    - Ordinal variables (e.g., education level)
 
 Key question:
+
     - Which encoding techniques (One-Hot vs Label Encoding) best preserve information and improve model performance?<br>
 
 3. Model Selection
 
 Seven classification algorithms are evaluated:
 
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- K-Nearest Neighbors (KNN)
-- Support Vector Machine (SVM)
-- Naive Bayes
-- Gradient Boosting
+    - Logistic Regression
+    - Decision Tree
+    - Random Forest
+    - K-Nearest Neighbors (KNN)
+    - Support Vector Machine (SVM)
+    - Naive Bayes
+    - Gradient Boosting
 
 Key question:
+    
     - Which models offer the best trade-off between performance and interpretability?<br>
 
 4. Validation & Reliability
 
 Model performance is evaluated using:
+
     - Train/test split (70/30)
     - Cross-validation (5, 7, and 10 folds)
 
 Key question:
+
     - How stable and reliable are the results across different validation strategies?<br>
 
 5. Generalization & Overfitting
@@ -78,6 +83,7 @@ Key question:
 Some models show significantly higher performance on training data than on test data.
 
 Key question:
+
     - How can overfitting be detected and mitigated to ensure robust generalization?
 
 ## Methodology
@@ -86,18 +92,25 @@ Key question:
 ### Income Dataset
 - Missing Values Handling
 Missing values (encoded as "?") were identified in categorical features (workclass, occupation, native-country).
-    - workclass and occupation missing values were considered informative (e.g., unemployed individuals) and encoded as "unknown"
-    - native-country missing values were kept as-is
+
+        - workclass and occupation missing values were considered informative (e.g., unemployed individuals) and encoded as "unknown"
+        - native-country missing values were kept as-is
+ 
 - Feature Selection
-    - Removed fnlwgt (non-informative for prediction)
-    - Dropped redundant feature education (kept educational-num instead)
+  
+        - Removed fnlwgt (non-informative for prediction)
+        - Dropped redundant feature education (kept educational-num instead)
+  
 - Categorical Encoding
-    -  Applied One-Hot Encoding to all nominal variables
-    - Target variable (income) encoded as binary (0 / 1)
+
+        -  Applied One-Hot Encoding to all nominal variables
+        - Target variable (income) encoded as binary (0 / 1)
+  
 - Numerical Scaling
-    - Applied standardization (StandardScaler)
-    - Special focus on skewed features (capital-gain, capital-loss)
-    - Multiple strategies tested → standardization yielded best performance
+   
+        - Applied standardization (StandardScaler)
+        - Special focus on skewed features (capital-gain, capital-loss)
+        - Multiple strategies tested → standardization yielded best performance
 
 ### Credit Dataset
 - Data Cleaning & Imputation
@@ -129,6 +142,7 @@ Missing values (encoded as "?") were identified in categorical features (workcla
 4. Model Training
 
 Seven classification models were trained and compared:
+
     - Logistic Regression
     - Decision Tree
     - Random Forest
@@ -138,10 +152,11 @@ Seven classification models were trained and compared:
     - Gradient Boosting<br>
 
 5. Model Evaluation
-    - Train/Test split: 70% / 30%
-    - Cross-validation: 5, 7, and 10 folds
-    - Performance comparison across models
-    - Analysis of overfitting and generalization gaps
+   
+        - Train/Test split: 70% / 30%
+        - Cross-validation: 5, 7, and 10 folds
+        - Performance comparison across models
+        - Analysis of overfitting and generalization gaps
 
 ## Results - Income Dataset (Final version)
 
@@ -161,27 +176,33 @@ Seven classification models were trained and compared:
 
 ### Key Insights
 1. Ensemble models outperform others
-    - Gradient Boosting and Random Forest outperform simpler models
-    - They better capture complex relationships in the data<br>
 
-2. Overfitting in Decision Tree
-    - Extremely high training scores (~97%) vs much lower test performance
-    - Indicates strong overfitting → poor generalization<br>
+        - Gradient Boosting and Random Forest outperform simpler models
+        - They better capture complex relationships in the data<br>
 
-3. Recall vs Precision trade-off
+3. Overfitting in Decision Tree
+   
+        - Extremely high training scores (~97%) vs much lower test performance
+        - Indicates strong overfitting → poor generalization<br>
+
+5. Recall vs Precision trade-off
 - Most models show:
-    - high recall (good detection of >50K income)
-    - lower precision (more false positives)
+
+        - high recall (good detection of >50K income)
+        - lower precision (more false positives)
+ 
 The models tend to over-predict high income<br>
 
 4. Naive Bayes behavior
-    - Very high recall (~92%) but extremely low precision (~40%)
-    - Not suitable for balanced decision-making<br>
 
-5. Stability across validation methods
-- Cross-validation results are consistent across:
-    - 5, 7, and 10 folds
-- Confirms robustness of the models
+        - Very high recall (~92%) but extremely low precision (~40%)
+        - Not suitable for balanced decision-making<br>
+
+6. Stability across validation methods
+
+        - Cross-validation results are consistent across:
+            - 5, 7, and 10 folds
+        - Confirms robustness of the models
 
 **Business Interpretation**
 - Models are effective for identifying high-income individuals (high recall)
