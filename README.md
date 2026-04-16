@@ -37,8 +37,8 @@ This project addresses several key challenges commonly encountered in real-world
 1. Data Quality
 The datasets contain missing values encoded as "?", primarily affecting categorical features such as workclass, occupation, and native-country.
 
-- How can missing values be properly handled without distorting the original data distribution?
-- How do these missing values impact model reliability and prediction quality?<br>
+    - How can missing values be properly handled without distorting the original data distribution?
+    - How do these missing values impact model reliability and prediction quality?
 
 2. Feature Encoding
 
