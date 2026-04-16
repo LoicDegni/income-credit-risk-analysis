@@ -38,7 +38,7 @@ This project addresses several key challenges commonly encountered in real-world
 The datasets contain missing values encoded as "?", primarily affecting categorical features such as workclass, occupation, and native-country.
 
 - How can missing values be properly handled without distorting the original data distribution?
-- How do these missing values impact model reliability and prediction quality?
+- How do these missing values impact model reliability and prediction quality?<br>
 
 2. Feature Encoding
 
@@ -47,7 +47,7 @@ The datasets include multiple categorical variables with different characteristi
 - Ordinal variables (e.g., education level)
 
 Key question:
-- Which encoding techniques (One-Hot vs Label Encoding) best preserve information and improve model performance?
+- Which encoding techniques (One-Hot vs Label Encoding) best preserve information and improve model performance?<br>
 
 3. Model Selection
 
@@ -63,7 +63,7 @@ Seven classification algorithms are evaluated:
 
 Key question:
 
-- Which models offer the best trade-off between performance and interpretability?
+- Which models offer the best trade-off between performance and interpretability?<br>
 
 4. Validation & Reliability
 
@@ -74,7 +74,7 @@ Model performance is evaluated using:
 
 Key question:
 
-- How stable and reliable are the results across different validation strategies?
+- How stable and reliable are the results across different validation strategies?<br>
 
 5. Generalization & Overfitting
 
@@ -111,14 +111,14 @@ Missing values (encoded as "?") were identified in categorical features (workcla
         - Removed zipcode due to high cardinality and low predictive value
         - Detected anomalies in income (e.g., employed individuals with zero income) → imputed using median
 - Feature Validation
-    - Analyzed distributions and corrected incoherent patterns (e.g., credit score behavior, income inconsistencies)
+    - Analyzed distributions and corrected incoherent patterns (e.g., credit score behavior, income inconsistencies)<br>
 
 2. Exploratory Data Analysis (EDA)
 - Analyzed distributions, outliers, and feature relationships
 - Identified:
     - Strong class imbalance in several categorical features (e.g., race, native-country)
     - Highly skewed numerical variables (e.g., capital-gain, income)
-- Highlighted potential redundancies (e.g., marital-status vs relationship)
+- Highlighted potential redundancies (e.g., marital-status vs relationship)<br>
 
 3. Class Imbalance Handling
 ### Income Dataset
@@ -129,7 +129,7 @@ Missing values (encoded as "?") were identified in categorical features (workcla
 - Moderate imbalance (~77% ratio)
 - Applied RandomOverSampler
 - Also tested SMOTE → similar performance
-- Oversampling preferred due to small dataset size
+- Oversampling preferred due to small dataset size<br>
 
 4. Model Training
 
@@ -141,7 +141,7 @@ Seven classification models were trained and compared:
 - KNN
 - SVM
 - Naive Bayes
-- Gradient Boosting
+- Gradient Boosting<br>
 
 5. Model Evaluation
 - Train/Test split: 70% / 30%
@@ -168,21 +168,21 @@ Seven classification models were trained and compared:
 ### Key Insights
 1. Ensemble models outperform others
 - Gradient Boosting and Random Forest outperform simpler models
-- They better capture complex relationships in the data
+- They better capture complex relationships in the data<br>
 
 2. Overfitting in Decision Tree
 - Extremely high training scores (~97%) vs much lower test performance
-- Indicates strong overfitting → poor generalization
+- Indicates strong overfitting → poor generalization<br>
 
 3. Recall vs Precision trade-off
 - Most models show:
     - high recall (good detection of >50K income)
     - lower precision (more false positives)
-The models tend to over-predict high income
+The models tend to over-predict high income<br>
 
 4. Naive Bayes behavior
 - Very high recall (~92%) but extremely low precision (~40%)
-- Not suitable for balanced decision-making
+- Not suitable for balanced decision-making<br>
 
 5. Stability across validation methods
 - Cross-validation results are consistent across:
@@ -218,7 +218,7 @@ Less suited for:
 - **Random Forest**
     - Highest overall accuracy (~87%)
     - Strong balance across all metrics
-    - ⚠️ However: clear overfitting (train = 100%)
+    - However: clear overfitting (train = 100%)
 - **Gradient Boosting**
     - Slightly lower accuracy but:
     - Better generalization
@@ -228,23 +228,23 @@ Less suited for:
 ### Key Insights
 1. Strong performance overall
     - Most models (LR, RF, GB) achieve >85% accuracy
-    - Indicates dataset is **predictive despite small size**
+    - Indicates dataset is **predictive despite small size**<br>
 2. Severe overfitting in tree-based models
 - Decision Tree and Random Forest:
     - Train score = 100%
     - Significant gap with test performance
--> This issue is related to the small size of the dataset
+-> This issue is related to the small size of the dataset<br>
 
 3. Logistic Regression performs surprisingly well
 Very stable across all validations
 Strong baseline with:
 high recall
-good F1-score
+good F1-score<br>
 
 4. SVM imbalance issue
 - Very high precision (~80%)
 - Very low recall (~30–40%)
--> Model is too conservative -> misses many positive cases
+-> Model is too conservative -> misses many positive cases<br>
 
 5. Impact of small dataset
 - Results are more sensitive to:
