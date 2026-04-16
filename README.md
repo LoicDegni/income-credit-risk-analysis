@@ -6,8 +6,11 @@ This project applies end-to-end data mining and machine learning techniques to s
 
 Two datasets are used:
 
-- **Income dataset** (~48,000 individuals): Predict whether a person earns more or less than $50,000 per year based on demographic, professional, and financial attributes.[https://github.com/LoicDegni/income-credit-risk-analysis/blob/main/data/credit.csv]
-- **Credit dataset** (690 records): Predict whether a credit application should be approved based on financial and personal characteristics.<br>
+- **Income dataset** (~48,000 individuals) : Predict whether a person earns more or less than $50,000 per year based on demographic, professional, and financial attributes.
+[View dataset](https://github.com/LoicDegni/income-credit-risk-analysis/blob/main/data/revenu.csv)
+
+- **Credit dataset** (690 records): Predict whether a credit application should be approved based on financial and personal characteristics.
+[View dataset](https://github.com/LoicDegni/income-credit-risk-analysis/blob/main/data/credit.csv)<br>
 
 The project follows a complete data science workflow:
 
