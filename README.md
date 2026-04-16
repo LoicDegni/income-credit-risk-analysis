@@ -51,7 +51,7 @@ Key question:
 
     - Which encoding techniques (One-Hot vs Label Encoding) best preserve information and improve model performance?<br>
 
-3. Model Selection
+3- Model Selection
 
 Seven classification algorithms are evaluated:
 
@@ -67,7 +67,7 @@ Key question:
     
     - Which models offer the best trade-off between performance and interpretability?<br>
 
-4. Validation & Reliability
+4- Validation & Reliability
 
 Model performance is evaluated using:
 
@@ -78,7 +78,7 @@ Key question:
 
     - How stable and reliable are the results across different validation strategies?<br>
 
-5. Generalization & Overfitting
+5- Generalization & Overfitting
 
 Some models show significantly higher performance on training data than on test data.
 
@@ -88,7 +88,7 @@ Key question:
 
 ## Methodology
 
-1. Data Preprocessing
+1- Data Preprocessing
 ### Income Dataset
 - Missing Values Handling
 Missing values (encoded as "?") were identified in categorical features (workclass, occupation, native-country).
@@ -121,14 +121,14 @@ Missing values (encoded as "?") were identified in categorical features (workcla
 - Feature Validation
     - Analyzed distributions and corrected incoherent patterns (e.g., credit score behavior, income inconsistencies)<br>
 
-2. Exploratory Data Analysis (EDA)
+2- Exploratory Data Analysis (EDA)
     - Analyzed distributions, outliers, and feature relationships
     - Identified:
     - Strong class imbalance in several categorical features (e.g., race, native-country)
     - Highly skewed numerical variables (e.g., capital-gain, income)
 - Highlighted potential redundancies (e.g., marital-status vs relationship)<br>
 
-3. Class Imbalance Handling
+3- Class Imbalance Handling
 ### Income Dataset
 - Strong imbalance (~75% ≤50K vs ~25% >50K)
 - Applied RandomUnderSampler to balance classes
@@ -139,7 +139,7 @@ Missing values (encoded as "?") were identified in categorical features (workcla
 - Also tested SMOTE → similar performance
 - Oversampling preferred due to small dataset size<br>
 
-4. Model Training
+4- Model Training
 
 Seven classification models were trained and compared:
 
@@ -151,7 +151,7 @@ Seven classification models were trained and compared:
     - Naive Bayes
     - Gradient Boosting<br>
 
-5. Model Evaluation
+5- Model Evaluation
    
         - Train/Test split: 70% / 30%
         - Cross-validation: 5, 7, and 10 folds
@@ -175,17 +175,17 @@ Seven classification models were trained and compared:
 ### Best Model: Gradient Boosting
 
 ### Key Insights
-1. Ensemble models outperform others
+1- Ensemble models outperform others
 
         - Gradient Boosting and Random Forest outperform simpler models
         - They better capture complex relationships in the data<br>
 
-3. Overfitting in Decision Tree
+2- Overfitting in Decision Tree
    
         - Extremely high training scores (~97%) vs much lower test performance
         - Indicates strong overfitting → poor generalization<br>
 
-5. Recall vs Precision trade-off
+3- Recall vs Precision trade-off
 - Most models show:
 
         - high recall (good detection of >50K income)
@@ -193,12 +193,12 @@ Seven classification models were trained and compared:
  
 The models tend to over-predict high income<br>
 
-4. Naive Bayes behavior
+4- Naive Bayes behavior
 
         - Very high recall (~92%) but extremely low precision (~40%)
         - Not suitable for balanced decision-making<br>
 
-6. Stability across validation methods
+5- Stability across validation methods
 
         - Cross-validation results are consistent across:
             - 5, 7, and 10 folds
@@ -241,27 +241,27 @@ Less suited for:
 **Final choice: Gradient Boosting (more robust)**
 
 ### Key Insights
-1. Strong performance overall
+1- Strong performance overall
     - Most models (LR, RF, GB) achieve >85% accuracy
     - Indicates dataset is **predictive despite small size**<br>
-2. Severe overfitting in tree-based models
+2- Severe overfitting in tree-based models
     - Decision Tree and Random Forest:
         - Train score = 100%
         - Significant gap with test performance
 -> This issue is related to the small size of the dataset<br>
 
-3. Logistic Regression performs surprisingly well
+3- Logistic Regression performs surprisingly well
 Very stable across all validations
 Strong baseline with:
 high recall
 good F1-score<br>
 
-4. SVM imbalance issue
+4- SVM imbalance issue
     - Very high precision (~80%)
     - Very low recall (~30–40%)
 -> Model is too conservative -> misses many positive cases<br>
 
-5. Impact of small dataset
+5- Impact of small dataset
     - Results are more sensitive to:
         - sampling
         - imbalance
