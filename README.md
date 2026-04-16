@@ -40,11 +40,11 @@ The datasets contain missing values encoded as "?", primarily affecting categori
     - How can missing values be properly handled without distorting the original data distribution?
     - How do these missing values impact model reliability and prediction quality?
 
-2. Feature Encoding
+2- Feature Encoding
 
 The datasets include multiple categorical variables with different characteristics:
-    - Nominal variables (e.g., occupation, workclass)
-    - Ordinal variables (e.g., education level)
+- Nominal variables (e.g., occupation, workclass)
+- Ordinal variables (e.g., education level)
 
 Key question:
     - Which encoding techniques (One-Hot vs Label Encoding) best preserve information and improve model performance?<br>
