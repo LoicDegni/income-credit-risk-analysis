@@ -34,7 +34,7 @@ The goal is to build robust predictive models while analyzing overfitting, model
 ## Problem Statement
 This project addresses several key challenges commonly encountered in real-world data science workflows:
 
-1. Data Quality
+1- Data Quality
 The datasets contain missing values encoded as "?", primarily affecting categorical features such as workclass, occupation, and native-country.
 
     - How can missing values be properly handled without distorting the original data distribution?
